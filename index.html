@@ -50,6 +50,23 @@
       <div class="section-head"><div><span class="badge">Admin Dashboard</span><h2>Pengurusan Jom Iqra' 1</h2></div><button id="refreshAdminBtn" class="ghost">↻ Refresh</button></div>
       <div class="stats"><div class="stat">👥 <b id="adminUsers">0</b><small>Pengguna</small></div><div class="stat">📖 <b id="adminPages">0</b><small>Halaman Selesai</small></div><div class="stat">⭐ <b id="adminStars">0</b><small>Jumlah Bintang</small></div><div class="stat">📈 <b id="adminActive">0</b><small>Aktif Belajar</small></div></div>
       <div class="table-wrap"><table><thead><tr><th>Nama</th><th>Progress</th><th>Selesai</th><th>Bintang</th><th>Kemaskini</th></tr></thead><tbody id="adminStudentRows"></tbody></table></div>
+
+      <div class="panel" style="margin-top:22px;text-align:left">
+        <h3>🎙️ Rakaman Ustazah & Makhraj</h3>
+        <p class="muted">Upload rakaman suara ustazah sebenar untuk setiap huruf berbaris atas. Format MP3/WAV/OGG/M4A, maksimum 5MB. Game akan menggunakan rakaman ini sebagai audio utama.</p>
+        <form id="audioUploadForm">
+          <div class="audio-form-grid">
+            <div><label>Huruf</label><select id="audioLetter" required></select></div>
+            <div><label>Nama ustazah</label><input id="audioSpeaker" placeholder="Contoh: Ustazah Aisyah" required /></div>
+            <div><label>Fail audio</label><input id="audioFile" type="file" accept="audio/mpeg,audio/wav,audio/ogg,audio/mp4,.mp3,.wav,.ogg,.m4a" required /></div>
+            <div><label>Sumber / catatan</label><input id="audioSource" placeholder="Rakaman sendiri / studio / tarikh" /></div>
+          </div>
+          <button class="primary" type="submit">⬆ Upload Rakaman</button>
+          <span id="audioUploadMsg" class="form-msg"></span>
+        </form>
+        <h4>Status Audio Huruf</h4>
+        <div id="audioLibraryGrid" class="audio-library-grid"></div>
+      </div>
     </section>
 
     <section id="homeView" class="card hidden">
@@ -68,6 +85,7 @@
     <section id="lessonView" class="card hidden">
       <div class="section-head"><div><span id="stepBadge" class="badge"></span><h2 id="lessonTitle">Halaman 1</h2></div><button class="ghost" id="backMapBtn">🗺️ Peta</button></div>
       <div id="arabicFocus" class="arabic">اَ</div><div id="romanFocus" class="roman">A</div>
+      <div id="audioSourceBadge" class="badge" style="margin-bottom:10px">🔊 Audio</div>
       <div id="letterStrip" class="letter-strip"></div>
       <div id="lessonBody"></div><p id="lessonFeedback" class="feedback"></p>
       <div class="lesson-nav"><button id="nextStepBtn" class="primary">Seterusnya ➜</button></div>
@@ -76,5 +94,6 @@
     <footer>Jom Iqra' 1 • Multi-user cloud learning</footer>
   </main>
   <script src="./app.js"></script>
+  <script src="./audio.js"></script>
 </body>
 </html>
